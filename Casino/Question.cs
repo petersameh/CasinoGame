@@ -9,7 +9,7 @@ namespace Casino
     public class Question
     {
         public int Id { get; set; }
-        public QuestionTypes.Types Type { get; set; }
+        public QuestionTypes.Category Category { get; set; }
         public string QuestionText { get; set; }
         public string Answer { get; set; }
         public string SourceFile { get; set; }

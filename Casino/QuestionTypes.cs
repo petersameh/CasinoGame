@@ -10,18 +10,22 @@ namespace Casino
 {
     public static class QuestionTypes
     {
-        public enum Types
+        public enum Category
         {
             [Description("Trivia")]
             Trivia = 1,
             [Description("Reversed Words")]
             ReversedWords = 2,
-            [Description("Song in Scene")]
+            [Description("اغنية المشهد")]
             SongInScene = 3,
             [Description("Song")]
             Song = 4,
             [Description("Flags")]
-            Flags = 5
+            Flags = 5,
+            [Description("افشات افلام")]
+            Jokes = 6,
+            [Description("Recognize the sound")]
+            Music = 7
         }
     }
 

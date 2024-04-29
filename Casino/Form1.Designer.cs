@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btn_back = new Button();
             btn_Next = new Button();
             btn_Start = new Button();
@@ -50,7 +51,9 @@
             btn_Player2Minus = new Button();
             btn_Player3Minus = new Button();
             txtBox_QuestionType = new TextBox();
+            musicplayer = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)picbox_Flags).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)musicplayer).BeginInit();
             SuspendLayout();
             // 
             // btn_back
@@ -88,7 +91,8 @@
             picbox_Flags.BackgroundImageLayout = ImageLayout.Stretch;
             picbox_Flags.Location = new Point(12, 240);
             picbox_Flags.Name = "picbox_Flags";
-            picbox_Flags.Size = new Size(776, 280);
+            picbox_Flags.Size = new Size(776, 245);
+            picbox_Flags.SizeMode = PictureBoxSizeMode.CenterImage;
             picbox_Flags.TabIndex = 6;
             picbox_Flags.TabStop = false;
             // 
@@ -178,31 +182,31 @@
             // 
             lbl_Player1Score.AutoSize = true;
             lbl_Player1Score.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Player1Score.Location = new Point(94, 718);
+            lbl_Player1Score.Location = new Point(118, 726);
             lbl_Player1Score.Name = "lbl_Player1Score";
-            lbl_Player1Score.Size = new Size(57, 21);
+            lbl_Player1Score.Size = new Size(19, 21);
             lbl_Player1Score.TabIndex = 15;
-            lbl_Player1Score.Text = "label1";
+            lbl_Player1Score.Text = "0";
             // 
             // lbl_Player2Score
             // 
             lbl_Player2Score.AutoSize = true;
             lbl_Player2Score.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Player2Score.Location = new Point(376, 718);
+            lbl_Player2Score.Location = new Point(396, 726);
             lbl_Player2Score.Name = "lbl_Player2Score";
-            lbl_Player2Score.Size = new Size(57, 21);
+            lbl_Player2Score.Size = new Size(19, 21);
             lbl_Player2Score.TabIndex = 16;
-            lbl_Player2Score.Text = "label1";
+            lbl_Player2Score.Text = "0";
             // 
             // lbl_Player3Score
             // 
             lbl_Player3Score.AutoSize = true;
             lbl_Player3Score.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Player3Score.Location = new Point(651, 718);
+            lbl_Player3Score.Location = new Point(665, 726);
             lbl_Player3Score.Name = "lbl_Player3Score";
-            lbl_Player3Score.Size = new Size(57, 21);
+            lbl_Player3Score.Size = new Size(19, 21);
             lbl_Player3Score.TabIndex = 17;
-            lbl_Player3Score.Text = "label1";
+            lbl_Player3Score.Text = "0";
             // 
             // btn_Player1Plus
             // 
@@ -281,11 +285,21 @@
             txtBox_QuestionType.TabIndex = 24;
             txtBox_QuestionType.TextAlign = HorizontalAlignment.Center;
             // 
+            // musicplayer
+            // 
+            musicplayer.Enabled = true;
+            musicplayer.Location = new Point(10, 502);
+            musicplayer.Name = "musicplayer";
+            musicplayer.OcxState = (AxHost.State)resources.GetObject("musicplayer.OcxState");
+            musicplayer.Size = new Size(775, 26);
+            musicplayer.TabIndex = 25;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 775);
+            Controls.Add(musicplayer);
             Controls.Add(txtBox_QuestionType);
             Controls.Add(btn_Player3Minus);
             Controls.Add(btn_Player2Minus);
@@ -313,6 +327,7 @@
             Name = "Form1";
             Text = "Casino";
             ((System.ComponentModel.ISupportInitialize)picbox_Flags).EndInit();
+            ((System.ComponentModel.ISupportInitialize)musicplayer).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -341,5 +356,6 @@
         private Button btn_Player2Minus;
         private Button btn_Player3Minus;
         private TextBox txtBox_QuestionType;
+        private AxWMPLib.AxWindowsMediaPlayer musicplayer;
     }
 }

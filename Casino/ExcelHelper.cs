@@ -37,7 +37,7 @@ namespace Casino
                             questions.Add(new Question 
                             {
                                 Id = int.Parse(reader[0].ToString()),
-                                Type = Enum.Parse<QuestionTypes.Types>(reader[1].ToString()),
+                                Category = Enum.Parse<QuestionTypes.Category>(reader[1].ToString()),
                                 QuestionText = reader[2].ToString(),
                                 Answer = reader[3].ToString(),
                                 SourceFile = reader[4].ToString()

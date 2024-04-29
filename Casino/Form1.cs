@@ -48,7 +48,7 @@ namespace Casino
                 ProceedTurn(question);
             }
             else
-                MessageBox.Show("No history yet");
+                MessageBox.Show("No previous questions");
         }
 
         private void ProceedTurn(Question question)
@@ -59,13 +59,14 @@ namespace Casino
             PrintQuestionsProgress();
             PrintQuestion(question.QuestionText);
             ShowImageBox(question);
+            ShowMusicPlayer(question);
             PrintAnswer(question);
             CurrentQuestionNumber = NextQuestionNumber == 0? 0 : NextQuestionNumber - 1;
         }
 
         private void PrintQuestionType(Question question)
         {
-            txtBox_QuestionType.Text = Extensions.GetEnumDescription(question.Type);
+            txtBox_QuestionType.Text = Extensions.GetEnumDescription(question.Category);
         }
 
         private void PrintAnswer(Question question)
@@ -89,10 +90,21 @@ namespace Casino
             else
                 picbox_Flags.Hide();
         }
+        private void ShowMusicPlayer(Question question)
+        {
+            if(question.Category == QuestionTypes.Category.Music)
+            {
+                musicplayer.Show();
+                musicplayer.URL = question.SourceFile;
+            }
+            else
+                musicplayer.Hide();
+
+        }
 
         private static bool QuestionHasImage(Question question)
         {
-            return question.Type == QuestionTypes.Types.Flags || question.Type == QuestionTypes.Types.SongInScene;
+            return question.Category == QuestionTypes.Category.Flags || question.Category == QuestionTypes.Category.SongInScene;
         }
 
         private static void AddHistory()
