@@ -85,27 +85,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\psameh.priv\\.nuget\\packages\\": {}
+    "C:\\Users\\psameh.RASAN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\psameh.priv\\source\\repos\\Casino\\Casino\\Casino.csproj",
+      "projectUniqueName": "D:\\Projects\\CasinoGame\\Casino\\Casino.csproj",
       "projectName": "Casino",
-      "projectPath": "C:\\Users\\psameh.priv\\source\\repos\\Casino\\Casino\\Casino.csproj",
-      "packagesPath": "C:\\Users\\psameh.priv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\psameh.priv\\source\\repos\\Casino\\Casino\\obj\\",
+      "projectPath": "D:\\Projects\\CasinoGame\\Casino\\Casino.csproj",
+      "packagesPath": "C:\\Users\\psameh.RASAN\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\CasinoGame\\Casino\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\psameh.priv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\psameh.RASAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0-windows"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
+        "https://tameeni.pkgs.visualstudio.com/_packaging/Aggregator-Feed/nuget/v3/index.json": {},
         "https://tameeni.pkgs.visualstudio.com/_packaging/GlobalFeed/nuget/v3/index.json": {},
         "https://tameeni.pkgs.visualstudio.com/_packaging/InsuranceTech-Feed/nuget/v3/index.json": {}
       },

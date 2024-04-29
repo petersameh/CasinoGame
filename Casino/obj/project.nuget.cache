@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "1Z/GGbWP8XJC0vA69hPsPOoJtm7XtHif06gEJOUzngL4ilibpAtiy5mifKUbZVIYZ0oTsx6/geAVfNXap9af5Q==",
+  "dgSpecHash": "UD3QgwoWyJr34DeCa68HfziUxE1W1Xt0TaJAPKDoyOxI/KWpnHbqcN0zd8dzRtxDox7bK2J8PCYuI7oVxgAiWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\psameh.priv\\source\\repos\\Casino\\Casino\\Casino.csproj",
+  "projectFilePath": "D:\\Projects\\CasinoGame\\Casino\\Casino.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\psameh.priv\\.nuget\\packages\\exceldatareader\\3.6.0\\exceldatareader.3.6.0.nupkg.sha512",
-    "C:\\Users\\psameh.priv\\.nuget\\packages\\exceldatareader.dataset\\3.6.0\\exceldatareader.dataset.3.6.0.nupkg.sha512"
+    "C:\\Users\\psameh.RASAN\\.nuget\\packages\\exceldatareader\\3.6.0\\exceldatareader.3.6.0.nupkg.sha512",
+    "C:\\Users\\psameh.RASAN\\.nuget\\packages\\exceldatareader.dataset\\3.6.0\\exceldatareader.dataset.3.6.0.nupkg.sha512"
   ],
   "logs": []
 }
