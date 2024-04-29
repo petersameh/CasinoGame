@@ -1,24 +1,44 @@
+using System.Diagnostics;
+
 namespace Casino
 {
     public partial class Form1 : Form
     {
+        private int player1Score;
+        private int player2Score;
+        private int player3Score;
+
+
         public static List<Question> Questions { get; set; }
         public static Stack<Question> QuestionsHistory { get; set; } = new Stack<Question>();
         public static int NextQuestionNumber { get; set; }
         public static int CurrentQuestionNumber { get; set; }
-        public static int Player1Score { get; set; }
-        public static int Player2Score { get; set; }
-        public static int Player3Score { get; set; }
+        public  int Player1Score { get { return player1Score; } set { player1Score = value; OnScoresChanged(this, EventArgs.Empty); } }
+        public  int Player2Score { get { return player2Score; } set { player2Score = value; OnScoresChanged(this, EventArgs.Empty); } }
+        public  int Player3Score { get { return player3Score; } set { player3Score = value; OnScoresChanged(this, EventArgs.Empty); } }
         public static int TurnNumber { get; set; } = 0;
+        public static Stopwatch Stopwatch { get; set; } = new Stopwatch();
+
+
         public Form1()
         {
             InitializeComponent();
+        }
+        private void OnScoresChanged(object sender, EventArgs e)
+        {
+            CheckWinnerEveryTurn();
         }
         private void btn_Start_Click(object sender, EventArgs e)
         {
             Questions = ExcelHelper.ReadResource("Resources/GameQuestions.xlsx");
             Questions = Extensions.Shuffle(Questions);
             btn_Next_Click(sender, e);
+            btn_Start.Hide();
+            btn_Next.Show();
+            btn_Back.Show();
+            timer.Start();
+            Stopwatch.Start();
+            btn_ShowAnswer.Enabled = true;
         }
         private void btn_Next_Click(object sender, EventArgs e)
         {
@@ -61,7 +81,7 @@ namespace Casino
             ShowImageBox(question);
             ShowMusicPlayer(question);
             PrintAnswer(question);
-            CurrentQuestionNumber = NextQuestionNumber == 0? 0 : NextQuestionNumber - 1;
+            CurrentQuestionNumber = NextQuestionNumber == 0 ? 0 : NextQuestionNumber - 1;
         }
 
         private void PrintQuestionType(Question question)
@@ -92,10 +112,11 @@ namespace Casino
         }
         private void ShowMusicPlayer(Question question)
         {
-            if(question.Category == QuestionTypes.Category.Music)
+            if (question.Category == QuestionTypes.Category.Music)
             {
                 musicplayer.Show();
                 musicplayer.URL = question.SourceFile;
+                musicplayer.Ctlcontrols.stop();
             }
             else
                 musicplayer.Hide();
@@ -104,7 +125,9 @@ namespace Casino
 
         private static bool QuestionHasImage(Question question)
         {
-            return question.Category == QuestionTypes.Category.Flags || question.Category == QuestionTypes.Category.SongInScene;
+            return question.Category == QuestionTypes.Category.Flags 
+                || question.Category == QuestionTypes.Category.SongInScene
+                || question.Category == QuestionTypes.Category.Actors;
         }
 
         private static void AddHistory()
@@ -157,12 +180,12 @@ namespace Casino
             if (txtBox_Answer.Visible)
             {
                 txtBox_Answer.Hide();
-                btn_ShowAnswer.Text = "Show";
+                btn_ShowAnswer.Text = "Show Answer";
             }
             else
             {
                 txtBox_Answer.Show();
-                btn_ShowAnswer.Text = "Hide";
+                btn_ShowAnswer.Text = "Hide Answer";
             }
         }
         private void HideAnswerButton()
@@ -170,7 +193,7 @@ namespace Casino
             if (txtBox_Answer.Visible)
             {
                 txtBox_Answer.Hide();
-                btn_ShowAnswer.Text = "Show";
+                btn_ShowAnswer.Text = "Show Answer";
             }
         }
 
@@ -182,33 +205,41 @@ namespace Casino
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             ResetGame();
+            btn_Start.Show();
+            timer.Stop();
+            Stopwatch.Stop();
+            Stopwatch.Reset();
         }
-
         private void ResetGame()
         {
-            btn_ShowAnswer.Hide();
-            picbox_Flags.Hide();
-            txtBox_Question.Clear();
-            txtBox_Answer.Clear();
-            Questions = new List<Question>();
             NextQuestionNumber = 0;
-
+            CurrentQuestionNumber = 0;
+            TurnNumber = 0;
             Player1Score = 0;
             Player2Score = 0;
             Player3Score = 0;
 
+
+            Questions = new List<Question>();
+            picbox_Flags.Hide();
+            txtBox_Question.Clear();
+            txtBox_Answer.Clear();
+            
+
+
+            lbl_QuestionTotal.Text = "";
             lbl_Player1Score.Text = "";
             lbl_Player2Score.Text = "";
             lbl_Player3Score.Text = "";
+
+            txtBox_QuestionType.Text = "Press start";
+            lbl_Timer.Text = "00:00";
         }
 
         private void btn_Player1Plus_Click(object sender, EventArgs e)
         {
             Player1Score++;
             PrintScorePlayer1();
-            CheckWinnerEveryTurn();
-
-
         }
 
         private void PrintScorePlayer1()
@@ -234,7 +265,6 @@ namespace Casino
         {
             Player2Score++;
             PrintScorePlayer2();
-            CheckWinnerEveryTurn();
 
         }
 
@@ -248,8 +278,6 @@ namespace Casino
         {
             Player3Score++;
             PrintScorePlayer3();
-            CheckWinnerEveryTurn();
-
         }
 
         private void btn_Player3Minus_Click(object sender, EventArgs e)
@@ -257,5 +285,11 @@ namespace Casino
             Player3Score--;
             PrintScorePlayer3();
         }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            lbl_Timer.Text = Stopwatch.Elapsed.ToString("mm\\:ss");
+        }
+
     }
 }

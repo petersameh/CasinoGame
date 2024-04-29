@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            btn_back = new Button();
+            btn_Back = new Button();
             btn_Next = new Button();
             btn_Start = new Button();
             picbox_Flags = new PictureBox();
@@ -52,35 +53,42 @@
             btn_Player3Minus = new Button();
             txtBox_QuestionType = new TextBox();
             musicplayer = new AxWMPLib.AxWindowsMediaPlayer();
+            lbl_Timer = new Label();
+            timer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)picbox_Flags).BeginInit();
             ((System.ComponentModel.ISupportInitialize)musicplayer).BeginInit();
             SuspendLayout();
             // 
-            // btn_back
+            // btn_Back
             // 
-            btn_back.Location = new Point(246, 595);
-            btn_back.Name = "btn_back";
-            btn_back.Size = new Size(317, 23);
-            btn_back.TabIndex = 0;
-            btn_back.Text = "Back";
-            btn_back.UseVisualStyleBackColor = true;
-            btn_back.Click += btn_Back_Click;
+            btn_Back.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Back.Location = new Point(12, 557);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(317, 30);
+            btn_Back.TabIndex = 0;
+            btn_Back.Text = "< Back";
+            btn_Back.UseVisualStyleBackColor = true;
+            btn_Back.Visible = false;
+            btn_Back.Click += btn_Back_Click;
             // 
             // btn_Next
             // 
-            btn_Next.Location = new Point(246, 566);
+            btn_Next.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Next.Location = new Point(471, 557);
             btn_Next.Name = "btn_Next";
-            btn_Next.Size = new Size(317, 23);
+            btn_Next.Size = new Size(317, 30);
             btn_Next.TabIndex = 1;
-            btn_Next.Text = "Next";
+            btn_Next.Text = "Next >";
             btn_Next.UseVisualStyleBackColor = true;
+            btn_Next.Visible = false;
             btn_Next.Click += btn_Next_Click;
             // 
             // btn_Start
             // 
-            btn_Start.Location = new Point(246, 537);
+            btn_Start.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_Start.Location = new Point(246, 595);
             btn_Start.Name = "btn_Start";
-            btn_Start.Size = new Size(317, 23);
+            btn_Start.Size = new Size(317, 30);
             btn_Start.TabIndex = 3;
             btn_Start.Text = "Start";
             btn_Start.UseVisualStyleBackColor = true;
@@ -98,9 +106,10 @@
             // 
             // btn_Reset
             // 
-            btn_Reset.Location = new Point(246, 624);
+            btn_Reset.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_Reset.Location = new Point(246, 634);
             btn_Reset.Name = "btn_Reset";
-            btn_Reset.Size = new Size(317, 23);
+            btn_Reset.Size = new Size(317, 30);
             btn_Reset.TabIndex = 7;
             btn_Reset.Text = "Reset";
             btn_Reset.UseVisualStyleBackColor = true;
@@ -108,12 +117,13 @@
             // 
             // btn_ShowAnswer
             // 
+            btn_ShowAnswer.Enabled = false;
             btn_ShowAnswer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_ShowAnswer.Location = new Point(12, 203);
             btn_ShowAnswer.Name = "btn_ShowAnswer";
             btn_ShowAnswer.Size = new Size(776, 31);
             btn_ShowAnswer.TabIndex = 8;
-            btn_ShowAnswer.Text = "Show";
+            btn_ShowAnswer.Text = "Show Answer";
             btn_ShowAnswer.UseVisualStyleBackColor = true;
             btn_ShowAnswer.Click += btn_ShowAnswer_Click;
             // 
@@ -142,7 +152,7 @@
             lbl_QuestionTotal.AutoSize = true;
             lbl_QuestionTotal.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
             lbl_QuestionTotal.ForeColor = Color.Red;
-            lbl_QuestionTotal.Location = new Point(339, 65);
+            lbl_QuestionTotal.Location = new Point(12, 63);
             lbl_QuestionTotal.Name = "lbl_QuestionTotal";
             lbl_QuestionTotal.Size = new Size(107, 28);
             lbl_QuestionTotal.TabIndex = 11;
@@ -283,22 +293,41 @@
             txtBox_QuestionType.ReadOnly = true;
             txtBox_QuestionType.Size = new Size(776, 36);
             txtBox_QuestionType.TabIndex = 24;
+            txtBox_QuestionType.Text = "Press Start";
             txtBox_QuestionType.TextAlign = HorizontalAlignment.Center;
             // 
             // musicplayer
             // 
             musicplayer.Enabled = true;
-            musicplayer.Location = new Point(10, 502);
+            musicplayer.Location = new Point(10, 501);
             musicplayer.Name = "musicplayer";
             musicplayer.OcxState = (AxHost.State)resources.GetObject("musicplayer.OcxState");
-            musicplayer.Size = new Size(775, 26);
+            musicplayer.Size = new Size(778, 46);
             musicplayer.TabIndex = 25;
+            musicplayer.Visible = false;
+            // 
+            // lbl_Timer
+            // 
+            lbl_Timer.AutoSize = true;
+            lbl_Timer.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_Timer.ForeColor = Color.Red;
+            lbl_Timer.Location = new Point(724, 63);
+            lbl_Timer.Name = "lbl_Timer";
+            lbl_Timer.Size = new Size(60, 28);
+            lbl_Timer.TabIndex = 26;
+            lbl_Timer.Text = "00:00";
+            // 
+            // timer
+            // 
+            timer.Interval = 1000;
+            timer.Tick += timer_Tick;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 775);
+            Controls.Add(lbl_Timer);
             Controls.Add(musicplayer);
             Controls.Add(txtBox_QuestionType);
             Controls.Add(btn_Player3Minus);
@@ -321,7 +350,7 @@
             Controls.Add(picbox_Flags);
             Controls.Add(btn_Start);
             Controls.Add(btn_Next);
-            Controls.Add(btn_back);
+            Controls.Add(btn_Back);
             MaximumSize = new Size(816, 814);
             MinimumSize = new Size(816, 814);
             Name = "Form1";
@@ -334,7 +363,7 @@
 
         #endregion
 
-        private Button btn_back;
+        private Button btn_Back;
         private Button btn_Next;
         private Button btn_Start;
         private PictureBox picbox_Flags;
@@ -357,5 +386,7 @@
         private Button btn_Player3Minus;
         private TextBox txtBox_QuestionType;
         private AxWMPLib.AxWindowsMediaPlayer musicplayer;
+        private Label lbl_Timer;
+        private System.Windows.Forms.Timer timer;
     }
 }

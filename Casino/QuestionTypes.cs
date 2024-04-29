@@ -18,14 +18,16 @@ namespace Casino
             ReversedWords = 2,
             [Description("اغنية المشهد")]
             SongInScene = 3,
-            [Description("Song")]
+            [Description("سمعني صوتك")]
             Song = 4,
             [Description("Flags")]
             Flags = 5,
             [Description("افشات افلام")]
             Jokes = 6,
             [Description("Recognize the sound")]
-            Music = 7
+            Music = 7,
+            [Description("مين الفنان")]
+            Actors = 8
         }
     }
 
