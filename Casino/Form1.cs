@@ -30,6 +30,9 @@ namespace Casino
             {
                 TurnNumber++;
                 ProceedTurn(Questions[NextQuestionNumber]);
+                AddHistory();
+
+
                 NextQuestionNumber++;
             }
 
@@ -39,7 +42,6 @@ namespace Casino
         {
             if (NextQuestionNumber > 1)
             {
-
                 NextQuestionNumber--;
                 var question = QuestionsHistory.Pop();
                 TurnNumber--;
@@ -52,15 +54,18 @@ namespace Casino
         private void ProceedTurn(Question question)
         {
             SetDefaultScores();
-
+            PrintQuestionType(question);
             HideAnswerButton();
             PrintQuestionsProgress();
             PrintQuestion(question.QuestionText);
             ShowImageBox(question);
             PrintAnswer(question);
-
-            AddHistory();
             CurrentQuestionNumber = NextQuestionNumber == 0? 0 : NextQuestionNumber - 1;
+        }
+
+        private void PrintQuestionType(Question question)
+        {
+            txtBox_QuestionType.Text = Extensions.GetEnumDescription(question.Type);
         }
 
         private void PrintAnswer(Question question)
@@ -75,7 +80,7 @@ namespace Casino
 
         private void ShowImageBox(Question question)
         {
-            if (question.Type == "Flags" || question.Type == "SongInScene")
+            if (QuestionHasImage(question))
             {
                 Image i = Image.FromFile(question.SourceFile);
                 picbox_Flags.Image = i;
@@ -83,6 +88,11 @@ namespace Casino
             }
             else
                 picbox_Flags.Hide();
+        }
+
+        private static bool QuestionHasImage(Question question)
+        {
+            return question.Type == QuestionTypes.Types.Flags || question.Type == QuestionTypes.Types.SongInScene;
         }
 
         private static void AddHistory()

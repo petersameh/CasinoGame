@@ -49,12 +49,13 @@
             btn_Player1Minus = new Button();
             btn_Player2Minus = new Button();
             btn_Player3Minus = new Button();
+            txtBox_QuestionType = new TextBox();
             ((System.ComponentModel.ISupportInitialize)picbox_Flags).BeginInit();
             SuspendLayout();
             // 
             // btn_back
             // 
-            btn_back.Location = new Point(246, 480);
+            btn_back.Location = new Point(246, 595);
             btn_back.Name = "btn_back";
             btn_back.Size = new Size(317, 23);
             btn_back.TabIndex = 0;
@@ -64,7 +65,7 @@
             // 
             // btn_Next
             // 
-            btn_Next.Location = new Point(246, 451);
+            btn_Next.Location = new Point(246, 566);
             btn_Next.Name = "btn_Next";
             btn_Next.Size = new Size(317, 23);
             btn_Next.TabIndex = 1;
@@ -74,7 +75,7 @@
             // 
             // btn_Start
             // 
-            btn_Start.Location = new Point(246, 422);
+            btn_Start.Location = new Point(246, 537);
             btn_Start.Name = "btn_Start";
             btn_Start.Size = new Size(317, 23);
             btn_Start.TabIndex = 3;
@@ -84,15 +85,16 @@
             // 
             // picbox_Flags
             // 
-            picbox_Flags.Location = new Point(145, 167);
+            picbox_Flags.BackgroundImageLayout = ImageLayout.Stretch;
+            picbox_Flags.Location = new Point(12, 240);
             picbox_Flags.Name = "picbox_Flags";
-            picbox_Flags.Size = new Size(510, 230);
+            picbox_Flags.Size = new Size(776, 280);
             picbox_Flags.TabIndex = 6;
             picbox_Flags.TabStop = false;
             // 
             // btn_Reset
             // 
-            btn_Reset.Location = new Point(246, 509);
+            btn_Reset.Location = new Point(246, 624);
             btn_Reset.Name = "btn_Reset";
             btn_Reset.Size = new Size(317, 23);
             btn_Reset.TabIndex = 7;
@@ -102,9 +104,10 @@
             // 
             // btn_ShowAnswer
             // 
-            btn_ShowAnswer.Location = new Point(12, 130);
+            btn_ShowAnswer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_ShowAnswer.Location = new Point(12, 203);
             btn_ShowAnswer.Name = "btn_ShowAnswer";
-            btn_ShowAnswer.Size = new Size(776, 23);
+            btn_ShowAnswer.Size = new Size(776, 31);
             btn_ShowAnswer.TabIndex = 8;
             btn_ShowAnswer.Text = "Show";
             btn_ShowAnswer.UseVisualStyleBackColor = true;
@@ -113,7 +116,7 @@
             // txtBox_Question
             // 
             txtBox_Question.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBox_Question.Location = new Point(12, 33);
+            txtBox_Question.Location = new Point(12, 106);
             txtBox_Question.Name = "txtBox_Question";
             txtBox_Question.ReadOnly = true;
             txtBox_Question.Size = new Size(776, 29);
@@ -123,7 +126,7 @@
             // txtBox_Answer
             // 
             txtBox_Answer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBox_Answer.Location = new Point(12, 85);
+            txtBox_Answer.Location = new Point(12, 158);
             txtBox_Answer.Name = "txtBox_Answer";
             txtBox_Answer.ReadOnly = true;
             txtBox_Answer.Size = new Size(776, 29);
@@ -133,16 +136,19 @@
             // lbl_QuestionTotal
             // 
             lbl_QuestionTotal.AutoSize = true;
-            lbl_QuestionTotal.Location = new Point(358, 9);
+            lbl_QuestionTotal.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_QuestionTotal.ForeColor = Color.Red;
+            lbl_QuestionTotal.Location = new Point(339, 65);
             lbl_QuestionTotal.Name = "lbl_QuestionTotal";
-            lbl_QuestionTotal.Size = new Size(64, 15);
+            lbl_QuestionTotal.Size = new Size(107, 28);
             lbl_QuestionTotal.TabIndex = 11;
             lbl_QuestionTotal.Text = "Question 1";
             // 
             // txtBox_Player1
             // 
             txtBox_Player1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBox_Player1.Location = new Point(35, 560);
+            txtBox_Player1.ForeColor = SystemColors.MenuHighlight;
+            txtBox_Player1.Location = new Point(26, 675);
             txtBox_Player1.Name = "txtBox_Player1";
             txtBox_Player1.Size = new Size(213, 29);
             txtBox_Player1.TabIndex = 12;
@@ -151,7 +157,8 @@
             // txtBox_Player2
             // 
             txtBox_Player2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBox_Player2.Location = new Point(309, 560);
+            txtBox_Player2.ForeColor = SystemColors.MenuHighlight;
+            txtBox_Player2.Location = new Point(300, 675);
             txtBox_Player2.Name = "txtBox_Player2";
             txtBox_Player2.Size = new Size(213, 29);
             txtBox_Player2.TabIndex = 13;
@@ -160,7 +167,8 @@
             // txtBox_Player3
             // 
             txtBox_Player3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBox_Player3.Location = new Point(575, 560);
+            txtBox_Player3.ForeColor = SystemColors.MenuHighlight;
+            txtBox_Player3.Location = new Point(566, 675);
             txtBox_Player3.Name = "txtBox_Player3";
             txtBox_Player3.Size = new Size(213, 29);
             txtBox_Player3.TabIndex = 14;
@@ -169,35 +177,39 @@
             // lbl_Player1Score
             // 
             lbl_Player1Score.AutoSize = true;
-            lbl_Player1Score.Location = new Point(111, 603);
+            lbl_Player1Score.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Player1Score.Location = new Point(94, 718);
             lbl_Player1Score.Name = "lbl_Player1Score";
-            lbl_Player1Score.Size = new Size(38, 15);
+            lbl_Player1Score.Size = new Size(57, 21);
             lbl_Player1Score.TabIndex = 15;
             lbl_Player1Score.Text = "label1";
             // 
             // lbl_Player2Score
             // 
             lbl_Player2Score.AutoSize = true;
-            lbl_Player2Score.Location = new Point(400, 603);
+            lbl_Player2Score.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Player2Score.Location = new Point(376, 718);
             lbl_Player2Score.Name = "lbl_Player2Score";
-            lbl_Player2Score.Size = new Size(38, 15);
+            lbl_Player2Score.Size = new Size(57, 21);
             lbl_Player2Score.TabIndex = 16;
             lbl_Player2Score.Text = "label1";
             // 
             // lbl_Player3Score
             // 
             lbl_Player3Score.AutoSize = true;
-            lbl_Player3Score.Location = new Point(665, 603);
+            lbl_Player3Score.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Player3Score.Location = new Point(651, 718);
             lbl_Player3Score.Name = "lbl_Player3Score";
-            lbl_Player3Score.Size = new Size(38, 15);
+            lbl_Player3Score.Size = new Size(57, 21);
             lbl_Player3Score.TabIndex = 17;
             lbl_Player3Score.Text = "label1";
             // 
             // btn_Player1Plus
             // 
-            btn_Player1Plus.Location = new Point(220, 616);
+            btn_Player1Plus.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Player1Plus.Location = new Point(196, 718);
             btn_Player1Plus.Name = "btn_Player1Plus";
-            btn_Player1Plus.Size = new Size(28, 23);
+            btn_Player1Plus.Size = new Size(41, 36);
             btn_Player1Plus.TabIndex = 18;
             btn_Player1Plus.Text = "+";
             btn_Player1Plus.UseVisualStyleBackColor = true;
@@ -205,9 +217,10 @@
             // 
             // btn_Player2Plus
             // 
-            btn_Player2Plus.Location = new Point(494, 616);
+            btn_Player2Plus.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Player2Plus.Location = new Point(471, 718);
             btn_Player2Plus.Name = "btn_Player2Plus";
-            btn_Player2Plus.Size = new Size(28, 23);
+            btn_Player2Plus.Size = new Size(41, 36);
             btn_Player2Plus.TabIndex = 19;
             btn_Player2Plus.Text = "+";
             btn_Player2Plus.UseVisualStyleBackColor = true;
@@ -215,9 +228,10 @@
             // 
             // btn_Player3Plus
             // 
-            btn_Player3Plus.Location = new Point(760, 616);
+            btn_Player3Plus.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Player3Plus.Location = new Point(738, 718);
             btn_Player3Plus.Name = "btn_Player3Plus";
-            btn_Player3Plus.Size = new Size(28, 23);
+            btn_Player3Plus.Size = new Size(41, 36);
             btn_Player3Plus.TabIndex = 20;
             btn_Player3Plus.Text = "+";
             btn_Player3Plus.UseVisualStyleBackColor = true;
@@ -225,9 +239,10 @@
             // 
             // btn_Player1Minus
             // 
-            btn_Player1Minus.Location = new Point(35, 616);
+            btn_Player1Minus.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Player1Minus.Location = new Point(26, 718);
             btn_Player1Minus.Name = "btn_Player1Minus";
-            btn_Player1Minus.Size = new Size(28, 23);
+            btn_Player1Minus.Size = new Size(41, 36);
             btn_Player1Minus.TabIndex = 21;
             btn_Player1Minus.Text = "-";
             btn_Player1Minus.UseVisualStyleBackColor = true;
@@ -235,9 +250,10 @@
             // 
             // btn_Player2Minus
             // 
-            btn_Player2Minus.Location = new Point(309, 616);
+            btn_Player2Minus.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Player2Minus.Location = new Point(300, 718);
             btn_Player2Minus.Name = "btn_Player2Minus";
-            btn_Player2Minus.Size = new Size(28, 23);
+            btn_Player2Minus.Size = new Size(41, 36);
             btn_Player2Minus.TabIndex = 22;
             btn_Player2Minus.Text = "-";
             btn_Player2Minus.UseVisualStyleBackColor = true;
@@ -245,19 +261,32 @@
             // 
             // btn_Player3Minus
             // 
-            btn_Player3Minus.Location = new Point(575, 616);
+            btn_Player3Minus.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Player3Minus.Location = new Point(566, 718);
             btn_Player3Minus.Name = "btn_Player3Minus";
-            btn_Player3Minus.Size = new Size(28, 23);
+            btn_Player3Minus.Size = new Size(41, 36);
             btn_Player3Minus.TabIndex = 23;
             btn_Player3Minus.Text = "-";
             btn_Player3Minus.UseVisualStyleBackColor = true;
             btn_Player3Minus.Click += btn_Player3Minus_Click;
             // 
+            // txtBox_QuestionType
+            // 
+            txtBox_QuestionType.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBox_QuestionType.ForeColor = SystemColors.MenuHighlight;
+            txtBox_QuestionType.Location = new Point(12, 12);
+            txtBox_QuestionType.Name = "txtBox_QuestionType";
+            txtBox_QuestionType.ReadOnly = true;
+            txtBox_QuestionType.Size = new Size(776, 36);
+            txtBox_QuestionType.TabIndex = 24;
+            txtBox_QuestionType.TextAlign = HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 651);
+            ClientSize = new Size(800, 775);
+            Controls.Add(txtBox_QuestionType);
             Controls.Add(btn_Player3Minus);
             Controls.Add(btn_Player2Minus);
             Controls.Add(btn_Player1Minus);
@@ -279,6 +308,8 @@
             Controls.Add(btn_Start);
             Controls.Add(btn_Next);
             Controls.Add(btn_back);
+            MaximumSize = new Size(816, 814);
+            MinimumSize = new Size(816, 814);
             Name = "Form1";
             Text = "Casino";
             ((System.ComponentModel.ISupportInitialize)picbox_Flags).EndInit();
@@ -309,5 +340,6 @@
         private Button btn_Player1Minus;
         private Button btn_Player2Minus;
         private Button btn_Player3Minus;
+        private TextBox txtBox_QuestionType;
     }
 }

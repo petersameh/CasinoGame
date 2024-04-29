@@ -14,6 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Resources\Flags\Afghanistan.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\Flags\America.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
